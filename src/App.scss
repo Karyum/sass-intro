@@ -1,0 +1,30 @@
+@import './theme/colors.scss';
+@import './theme/containers.scss';
+
+.container {
+  @extend .main-container;
+
+  margin: 50px auto 0 auto;
+  max-width: 300px;
+
+  .title {
+    color: $main-blue;
+    margin-bottom: -10px;
+  }
+
+  .description {
+    color: $sub-purple;
+  }
+}
+
+.secondary-container {
+  @extend .main-container;
+
+  margin: 50px auto 0 auto;
+  max-width: 200px;
+
+  .some-text {
+    color: $main-blue;
+    font-size: 15px;
+  }
+}
