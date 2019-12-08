@@ -1,11 +1,12 @@
 # SASS introduction
 
 ## Local installation
-```console
+```
 git clone git@github.com:Karyum/sass-intro.git
 cd sass-intro
 npm i
 npm start
+
 ```
 
 
