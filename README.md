@@ -1,6 +1,13 @@
 # SASS introduction
 
-> Notes: this introduction is just to learn what is sass and why is it really famous. you can still use bootstrap in your projects as long as you follow the design given. 
+## Local installation
+```console
+git clone git@github.com:Karyum/sass-intro.git
+cd sass-intro
+npm i
+npm start
+```
+
 
 ### - Sass is a CSS preprocessor.
 #### What is a preprocessor ?
