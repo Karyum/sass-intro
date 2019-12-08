@@ -1,68 +1,136 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# SASS introduction
 
-## Available Scripts
+> Notes: this introduction is just to learn what is sass and why is it really famous. you can still use bootstrap in your projects as long as you follow the design given. 
 
-In the project directory, you can run:
+### - Sass is a CSS preprocessor.
+#### What is a preprocessor ?
+- A CSS preprocessor is a scripting language that extends CSS by allowing developers to write code in one language and then compile it into CSS. Sass is perhaps the most popular preprocessor around, but other common examples include [Less](http://lesscss.org/) and [Stylus](http://stylus-lang.com/).
 
-### `yarn start`
+#### So? What is Sass ?
+- Sass (Syntactically Awesome Style Sheets) is an extension of CSS that enables you to use things like variables, nested rules, inline imports and more.
 
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
+## Let's see how to use Sass
 
-### `yarn test`
 
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
 
-### `yarn build`
 
-Builds the app for production to the `build` folder.<br />
-It correctly bundles React in production mode and optimizes the build for the best performance.
 
-The build is minified and the filenames include the hashes.<br />
-Your app is ready to be deployed!
+#### 1) Nested syntax
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+```htmlmixed=
+<div class="container">
+    <h1 class="title">Hello World!</h1>    
+    <p class="description">
+        This is a description with an image 
+        <img class="description-image" src=""/>
+    </p>
+</div>
+```
 
-### `yarn eject`
+```css=
+.container {
+    /*   Some styling here   */
+}
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+.title {
+    /*   Some styling here   */
+}
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+.description {
+    /*   Some styling here   */
+}
 
-Instead, it will copy all the configuration files and the transitive dependencies (Webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+.description-image {
+    /*   Some styling here   */
+}
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+```
 
-## Learn More
+> use class only for CSS not id!!
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+```sass=
+.container {
+    /*   Some styling here   */
+    
+    .title {
+    /*   Some styling here   */
+    }
+    
+    .description {
+    /*   Some styling here   */
+    
+        .description-image {
+        
+        }
+    }
+}
 
-### Code Splitting
+```
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
 
-### Analyzing the Bundle Size
+#### 2) Variables
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
+```sass=
+$cool-font: Helvetica, sans-serif;
+$mario-color: #FFFFFF;
+$dog-color: #964b00;
 
-### Making a Progressive Web App
+.title {
+    color: $mario-color;
+    font-family: $cool-font;
+}
+```
+#
+### Let's see a practical use!!
+#
+#### 3) Import styles
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
+```sass=
+# colors.scss
+$main-blue: #4287f5;
+$sub-purple: #e942f5;
+```
 
-### Advanced Configuration
+```sass=
+# app.scss
+@import './colors.scss';
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
+.title {
+    color: $main-blue;
+}
+```
 
-### Deployment
+#### 4) @extend
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
+```sass=
+.button {
+    border: 2px solid pink;
+    border-radius: 8px;
+    padding: 15px;
+    min-width: 150px;
+}
 
-### `yarn build` fails to minify
+.sales-button {
+    @extend .button;
+    margin-right: 20px;
+}
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+.exit-button {
+    @extend .button;
+    margin-left: 20px;
+}
+```
+
+
+
+## How to setup with create-react-app
+
+
+- after running create-react-app and your project is built run :
+```console
+$ npm install node-sass --save
+```
+
+- that's it! sass is in your project, you now only need to change from `.css` files to `.scss`
